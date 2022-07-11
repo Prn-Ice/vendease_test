@@ -1,0 +1,46 @@
+name: app_ui
+description: UI Toolkit for the Vendease Flutter Application
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: ">=2.16.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  dart_code_metrics: ^4.16.0
+  flutter:
+    sdk: flutter
+  flutter_screenutil: ^5.5.3+2
+
+dev_dependencies:
+  build_runner: ^2.1.11
+  flutter_gen_runner: ^4.3.0
+  flutter_test:
+    sdk: flutter
+  very_good_analysis: ^2.0.4
+
+flutter_gen:
+  output: lib/src/gen/
+
+  assets:
+    package_parameter_enabled: true
+
+flutter:
+  fonts:
+    - family: Gilroy
+      fonts:
+        - asset: assets/fonts/Gilroy-ExtraBold.otf
+          weight: 800
+        - asset: assets/fonts/Gilroy-Light.otf
+          weight: 400
+
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
+          weight: 600
+
+    - family: Lato
+      fonts:
+        - asset: assets/fonts/Lato-Regular.ttf
+          weight: 500
