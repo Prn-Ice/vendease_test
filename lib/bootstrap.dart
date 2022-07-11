@@ -23,6 +23,9 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   // setup GetIt
   configureDependencies();
 
+  // close splash
+  FlutterNativeSplash.remove();
+
   // setup logger
   final blocLogger = getLogger('BLOC', usePrettyPrinter: true);
   final globalLogger = getLogger('GLOBAL');
