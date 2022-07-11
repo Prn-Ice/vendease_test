@@ -29,7 +29,6 @@ class App extends StatelessWidget {
       minTextAdapt: true,
       builder: (context, child) => MaterialApp.router(
         routerDelegate: _router.delegate(
-          initialRoutes: [const CounterRoute()],
           placeholder: (context) => const ColoredBox(color: Colors.white),
           navigatorObservers: () => [
             AppRouteObserver(logger: getLogger('ROUTER')),

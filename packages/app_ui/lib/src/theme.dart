@@ -19,6 +19,7 @@ class VendeaseTheme {
       bottomSheetTheme: _bottomSheetTheme,
       tabBarTheme: _tabBarTheme,
       dividerTheme: _dividerTheme,
+      scaffoldBackgroundColor: Colors.white,
     );
   }
 

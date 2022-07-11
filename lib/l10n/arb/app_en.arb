@@ -1,7 +1,78 @@
 {
-    "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
+  "@@locale": "en",
+  "currency": "{amount}",
+  "@currency": {
+    "description": "Amount with symbol",
+    "placeholders": {
+      "amount": {
+        "type": "double",
+        "format": "currency",
+        "example": "0",
+        "optionalParameters": {
+          "decimalDigits": 0,
+          "symbol": ""
+        }
+      }
     }
+  },
+  "counterAppBarTitle": "Counter",
+  "@counterAppBarTitle": {
+    "description": "Text shown in the AppBar of the Counter Page"
+  },
+  "dashboardHomeTitle": "Home",
+  "@dashboardHomeTitle": {
+    "description": "Text shown on BottomNavigationBar on home tab"
+  },
+  "dashboardOrdersTitle": "Orders",
+  "@dashboardOrdersTitle": {
+    "description": "Text shown on BottomNavigationBar on orders tab"
+  },
+  "dashboardProductsTitle": "Products",
+  "@dashboardProductsTitle": {
+    "description": "Text shown on BottomNavigationBar on products tab"
+  },
+  "dashboardInvoiceTitle": "Invoice",
+  "@dashboardInvoiceTitle": {
+    "description": "Text shown on BottomNavigationBar on invoice tab"
+  },
+  "dashboardDeliveryTitle": "Delivery",
+  "@dashboardDeliveryTitle": {
+    "description": "Text shown on BottomNavigationBar on delivery tab"
+  },
+  "homeWelcome": "Welcome, ",
+  "@homeWelcome": {
+    "description": "Welcome text shown next to user name home tab"
+  },
+  "homeGreeting": "What are you looking for today?",
+  "@homeGreeting": {
+    "description": "Message displayed below [homeWelcome]"
+  },
+  "homeDurationPre": "Show:",
+  "@homeDurationPre": {
+    "description": "Text displayed next to duration sort button on [HomePage]"
+  },
+  "homeDurationSelect": "This week",
+  "@homeDurationSelect": {
+    "description": "Text displayed on duration selector on [HomePage]"
+  },
+  "homeViewMore": "View more",
+  "@homeViewMore": {
+    "description": "Text displayed on view more button on [HomePage]"
+  },
+  "homeTotalOrders": "Total Orders",
+  "@homeTotalOrders": {
+    "description": "Text displayed above total orders"
+  },
+  "homeProductsTitle": "Product categories",
+  "@homeProductsTitle": {
+    "description": "Text displayed above list of products on [HomePage]"
+  },
+  "homeProductsSeeAll": "See all",
+  "@homeProductsSeeAll": {
+    "description": "Text shown on button next to [homeProductsTitle], when tapped displays all products"
+  },
+  "homeRecentOrdersTitle": "Recent order list",
+  "@homeRecentOrdersTitle": {
+    "description": "Text displayed above list of recent orders on [HomePage]"
+  }
 }

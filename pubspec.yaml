@@ -10,7 +10,10 @@ environment:
 dependencies:
   app_ui:
   bloc: ^8.0.3
+  cached_network_image: ^3.2.1
+  dots_indicator: ^2.1.0
   equatable: ^2.0.3
+  expandable_page_view: ^1.0.17
   flutter:
     sdk: flutter
   flutter_localizations:
@@ -21,6 +24,7 @@ dependencies:
   intl: ^0.17.0
   nil: ^1.1.1
   objectbox_flutter_libs: ^1.6.0
+  skeleton_animation: ^0.1.4
 
   # analytics
   dart_code_metrics: ^4.16.0
@@ -40,6 +44,7 @@ dependencies:
   flutter_hooks: ^0.18.5+1
   get_it: "^7.2.0"
   platform_info: ^3.2.0
+  auto_size_text: ^3.0.0
 
 dependency_overrides:
   async: 2.8.2

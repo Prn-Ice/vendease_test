@@ -16,9 +16,6 @@ class FontFamily {
   /// Font family: Lato
   static const String lato = 'Lato';
 
-  /// Font family: OpenSans
-  static const String openSans = 'OpenSans';
-
   /// Font family: Poppins
   static const String poppins = 'Poppins';
 }

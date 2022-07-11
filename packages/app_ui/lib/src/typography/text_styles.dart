@@ -1,3 +1,4 @@
+import 'package:app_ui/src/colors.dart';
 import 'package:app_ui/src/gen/fonts.gen.dart';
 import 'package:app_ui/src/typography/typography.dart';
 import 'package:flutter/widgets.dart';
@@ -11,6 +12,7 @@ class VendeaseTextStyle {
     package: 'app_ui',
     fontFamily: FontFamily.gilroy,
     fontWeight: VendeaseFontWeight.regular,
+    color: VendeaseColors.black,
   );
 
   /// Headline 1 Text Style

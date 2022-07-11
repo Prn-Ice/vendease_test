@@ -8,7 +8,7 @@ import 'package:vendease_test/features/home/cubit/cubit.dart';
 /// {@endtemplate}
 class HomeBody extends StatelessWidget {
   /// {@macro home_body}
-  const HomeBody({Key? key}) : super(key: key);
+  const HomeBody({super.key});
 
   @override
   Widget build(BuildContext context) {
