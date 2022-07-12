@@ -10,6 +10,10 @@ Vendease test project
 
 ---
 
+> **Note To Reviewer**: Hi, hope youre having a good day so far, thank you for reviewing my test app.
+>
+> For the documents and instructions given, I know that my solution will be classified as `over-engineered`, I chose to build the app like this to give you an Idea of my current capabilities. However I am very happy to work with apps that are built with simpler or more complex architectures.
+
 ## Getting Started 🚀
 
 This project contains 3 flavors:
