@@ -1,3 +1,7 @@
+## 1.1.0-dev.3
+
+ - **FIX**: remove flexible widget.
+
 ## 1.1.0-dev.2
 
  - **FIX**: minor updates.
