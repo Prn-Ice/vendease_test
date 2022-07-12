@@ -1,3 +1,9 @@
+## 1.1.0-dev.2
+
+ - **FIX**: minor updates.
+ - **FIX**: fix typos.
+ - **DOCS**: update readme.
+
 ## 1.1.0-dev.1
 
  - **FIX**: hopefully final update.
