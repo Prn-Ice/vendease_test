@@ -24,6 +24,7 @@ class CartState extends Equatable {
     );
   }
 }
+
 /// {@template cart_initial}
 /// The initial state of CartState
 /// {@endtemplate}

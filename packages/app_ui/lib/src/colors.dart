@@ -22,6 +22,8 @@ abstract class VendeaseColors {
 
   static final Color black60 = const Color(0xff000000).withOpacity(0.6);
 
+  static final Color black65 = const Color(0xff000000).withOpacity(0.65);
+
   static final Color black70 = const Color(0xff000000).withOpacity(0.7);
 
   static final Color black80 = const Color(0xff000000).withOpacity(0.8);
@@ -48,4 +50,8 @@ abstract class VendeaseColors {
   static final Color sixF6A6A = const Color(0xFF6F6A6A).withOpacity(0.05);
 
   static final Color sixF6A6ALess = const Color(0xFF6F6A6A).withOpacity(0.03);
+
+  static final Color three63434 = const Color(0xFF363434).withOpacity(0.9);
+
+  static final Color three63434Less = const Color(0xFF363434).withOpacity(0.8);
 }

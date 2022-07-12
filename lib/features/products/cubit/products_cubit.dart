@@ -9,6 +9,6 @@ class ProductsCubit extends Cubit<ProductsState> {
 
   /// A description for yourCustomFunction
   FutureOr<void> yourCustomFunction() {
-    // TODO: Add Logic
+    // TODO(Prn-Ice): Add Logic
   }
 }

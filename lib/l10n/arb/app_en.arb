@@ -74,5 +74,47 @@
   "homeRecentOrdersTitle": "Recent order list",
   "@homeRecentOrdersTitle": {
     "description": "Text displayed above list of recent orders on [HomePage]"
+  },
+  "cartTitle": "Your cart",
+  "@cartTitle": {
+    "description": "Title text shown on cart tab"
+  },
+  "cartItemsCount": "{count,plural, ={Item} other{Items}}",
+  "@cartItemsCount": {
+    "description": "No of items in cart",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cartSearchProduct": "Search Product",
+  "@cartSearchProduct": {
+    "description": "Text shown on product search box"
+  },
+  "cartCratesCount": "{count,plural, ={Crate} other{Crates}}",
+  "@cartCratesCount": {
+    "description": "No of crates of item in cart",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cartAddProduct": "+ Add Products ",
+  "@cartAddProduct": {
+    "description": "Button displayed on [CartPage], when tapped allow user to add another product to cart"
+  },
+  "cartTotal": "TOTAL",
+  "@cartTotal": {
+    "description": "Text displayed next to total of cart items"
+  },
+  "cartDeliveryFeeWarning": "Delivery fee not included yet",
+  "@cartDeliveryFeeWarning": {
+    "description": "Warning displayed below total amount"
+  },
+  "cartCheckOut": "Check out",
+  "@cartCheckOut": {
+    "description": "Text displayed on checkout button, when pressed should proceed to payment"
   }
 }

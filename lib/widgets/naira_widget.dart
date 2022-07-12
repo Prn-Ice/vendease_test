@@ -20,7 +20,10 @@ class NairaWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Assets.images.general.naira.svg(width: nairaWidth ?? 11.w),
+        Assets.images.general.naira.svg(
+          width: nairaWidth ?? 11.w,
+          color: nairaColor,
+        ),
         // const SizedBox(width: 2),
         Text(
           context.l10n.currency(amount ?? 0),

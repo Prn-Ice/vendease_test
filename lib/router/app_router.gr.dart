@@ -13,14 +13,14 @@
 import 'package:auto_route/auto_route.dart' as _i9;
 import 'package:flutter/material.dart' as _i10;
 
-import '../features/cart/cart.dart' as _i6;
-import '../features/counter/counter.dart' as _i2;
+import '../features/cart/cart.dart' as _i2;
+import '../features/counter/counter.dart' as _i3;
 import '../features/dashboard/dashboard.dart' as _i1;
 import '../features/delivery/delivery.dart' as _i8;
-import '../features/home/home.dart' as _i3;
+import '../features/home/home.dart' as _i4;
 import '../features/invoice/invoice.dart' as _i7;
-import '../features/orders/orders.dart' as _i4;
-import '../features/products/products.dart' as _i5;
+import '../features/orders/orders.dart' as _i5;
+import '../features/products/products.dart' as _i6;
 
 class AppRouter extends _i9.RootStackRouter {
   AppRouter([_i10.GlobalKey<_i10.NavigatorState>? navigatorKey])
@@ -36,10 +36,18 @@ class AppRouter extends _i9.RootStackRouter {
           opaque: true,
           barrierDismissible: false);
     },
+    CartRoute.name: (routeData) {
+      return _i9.CustomPage<void>(
+          routeData: routeData,
+          child: const _i2.CartPage(),
+          transitionsBuilder: _i9.TransitionsBuilders.fadeIn,
+          opaque: true,
+          barrierDismissible: false);
+    },
     CounterRoute.name: (routeData) {
       return _i9.CustomPage<void>(
           routeData: routeData,
-          child: const _i2.CounterPage(),
+          child: const _i3.CounterPage(),
           transitionsBuilder: _i9.TransitionsBuilders.fadeIn,
           opaque: true,
           barrierDismissible: false);
@@ -47,7 +55,7 @@ class AppRouter extends _i9.RootStackRouter {
     HomeRoute.name: (routeData) {
       return _i9.CustomPage<void>(
           routeData: routeData,
-          child: const _i3.HomePage(),
+          child: const _i4.HomePage(),
           transitionsBuilder: _i9.TransitionsBuilders.fadeIn,
           opaque: true,
           barrierDismissible: false);
@@ -55,7 +63,7 @@ class AppRouter extends _i9.RootStackRouter {
     OrdersRoute.name: (routeData) {
       return _i9.CustomPage<void>(
           routeData: routeData,
-          child: const _i4.OrdersPage(),
+          child: const _i5.OrdersPage(),
           transitionsBuilder: _i9.TransitionsBuilders.fadeIn,
           opaque: true,
           barrierDismissible: false);
@@ -63,15 +71,7 @@ class AppRouter extends _i9.RootStackRouter {
     ProductsRoute.name: (routeData) {
       return _i9.CustomPage<void>(
           routeData: routeData,
-          child: const _i5.ProductsPage(),
-          transitionsBuilder: _i9.TransitionsBuilders.fadeIn,
-          opaque: true,
-          barrierDismissible: false);
-    },
-    CartRoute.name: (routeData) {
-      return _i9.CustomPage<void>(
-          routeData: routeData,
-          child: const _i6.CartPage(),
+          child: const _i6.ProductsPage(),
           transitionsBuilder: _i9.TransitionsBuilders.fadeIn,
           opaque: true,
           barrierDismissible: false);
@@ -103,13 +103,12 @@ class AppRouter extends _i9.RootStackRouter {
               path: 'orders-page', parent: DashboardRoute.name),
           _i9.RouteConfig(ProductsRoute.name,
               path: 'products-page', parent: DashboardRoute.name),
-          _i9.RouteConfig(CartRoute.name,
-              path: 'cart-page', parent: DashboardRoute.name),
           _i9.RouteConfig(InvoiceRoute.name,
               path: 'invoice-page', parent: DashboardRoute.name),
           _i9.RouteConfig(DeliveryRoute.name,
               path: 'delivery-page', parent: DashboardRoute.name)
         ]),
+        _i9.RouteConfig(CartRoute.name, path: '/cart-page'),
         _i9.RouteConfig(CounterRoute.name, path: '/counter-page')
       ];
 }
@@ -124,7 +123,15 @@ class DashboardRoute extends _i9.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i2.CounterPage]
+/// [_i2.CartPage]
+class CartRoute extends _i9.PageRouteInfo<void> {
+  const CartRoute() : super(CartRoute.name, path: '/cart-page');
+
+  static const String name = 'CartRoute';
+}
+
+/// generated route for
+/// [_i3.CounterPage]
 class CounterRoute extends _i9.PageRouteInfo<void> {
   const CounterRoute() : super(CounterRoute.name, path: '/counter-page');
 
@@ -132,7 +139,7 @@ class CounterRoute extends _i9.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.HomePage]
+/// [_i4.HomePage]
 class HomeRoute extends _i9.PageRouteInfo<void> {
   const HomeRoute() : super(HomeRoute.name, path: 'home-page');
 
@@ -140,7 +147,7 @@ class HomeRoute extends _i9.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i4.OrdersPage]
+/// [_i5.OrdersPage]
 class OrdersRoute extends _i9.PageRouteInfo<void> {
   const OrdersRoute() : super(OrdersRoute.name, path: 'orders-page');
 
@@ -148,19 +155,11 @@ class OrdersRoute extends _i9.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i5.ProductsPage]
+/// [_i6.ProductsPage]
 class ProductsRoute extends _i9.PageRouteInfo<void> {
   const ProductsRoute() : super(ProductsRoute.name, path: 'products-page');
 
   static const String name = 'ProductsRoute';
-}
-
-/// generated route for
-/// [_i6.CartPage]
-class CartRoute extends _i9.PageRouteInfo<void> {
-  const CartRoute() : super(CartRoute.name, path: 'cart-page');
-
-  static const String name = 'CartRoute';
 }
 
 /// generated route for

@@ -24,6 +24,7 @@ class ProductsState extends Equatable {
     );
   }
 }
+
 /// {@template products_initial}
 /// The initial state of ProductsState
 /// {@endtemplate}

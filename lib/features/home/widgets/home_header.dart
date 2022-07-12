@@ -1,8 +1,10 @@
 import 'package:app_ui/app_ui.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:vendease_test/extensions/extensions.dart';
 import 'package:vendease_test/features/dashboard/dashboard.dart';
 import 'package:vendease_test/l10n/l10n.dart';
+import 'package:vendease_test/router/router.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({super.key});
@@ -98,9 +100,9 @@ class _TopHeader extends StatelessWidget {
         const Spacer(),
         Assets.images.home.demoUser.image(width: 26.w).toSimpleButton(),
         21.96.horizontalSpace,
-        Assets.images.home.cart
-            .svg(width: 22.34.w)
-            .toSimpleButton(onPressed: () {}),
+        Assets.images.home.cart.svg(width: 22.34.w).toSimpleButton(
+              onPressed: () => context.pushRoute(const CartRoute()),
+            ),
       ],
     );
   }

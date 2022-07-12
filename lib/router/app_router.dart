@@ -19,11 +19,11 @@ import 'package:vendease_test/features/products/products.dart';
         AutoRoute<void>(page: HomePage),
         AutoRoute<void>(page: OrdersPage),
         AutoRoute<void>(page: ProductsPage),
-        AutoRoute<void>(page: CartPage),
         AutoRoute<void>(page: InvoicePage),
         AutoRoute<void>(page: DeliveryPage),
       ],
     ),
+    AutoRoute<void>(page: CartPage),
     AutoRoute<void>(page: CounterPage),
   ],
 )

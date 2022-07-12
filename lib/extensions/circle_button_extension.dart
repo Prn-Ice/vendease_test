@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
 extension CircleButtonExtension on Widget {
-  Widget toSimpleButton({VoidCallback? onPressed}) {
+  Widget toSimpleButton({VoidCallback? onPressed, EdgeInsets? padding}) {
     return InkWell(
       onTap: onPressed,
       borderRadius: BorderRadius.circular(4),
-      child: this,
+      child: Padding(
+        padding: padding ?? EdgeInsets.zero,
+        child: this,
+      ),
     );
   }
 }

@@ -17,8 +17,7 @@ import 'package:vendease_test/router/router.dart';
 import 'package:vendease_test/utils/utils.dart';
 
 class App extends StatelessWidget {
-  App({super.key, AppRouter? router})
-      : _router = router ?? resolve();
+  App({super.key, AppRouter? router}) : _router = router ?? resolve();
 
   final AppRouter _router;
 
