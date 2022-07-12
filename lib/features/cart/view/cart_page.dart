@@ -147,7 +147,7 @@ class _CartItemBottom extends StatelessWidget {
               .copyWith(color: VendeaseColors.black80),
         ),
         19.1.horizontalSpace,
-        Assets.images.cart.remove
+        Assets.images.cart.add
             .svg(width: 19.1.w)
             .toSimpleButton(onPressed: () {}),
       ],
