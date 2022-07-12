@@ -89,13 +89,11 @@ class _CartItem extends StatelessWidget {
       child: Row(
         children: [
           51.horizontalSpace,
-          Flexible(
-            child: CachedNetworkImage(
-              colorBlendMode: BlendMode.darken,
-              imageUrl: 'https://loremflickr.com/320/240/food',
-              placeholder: (context, url) => Skeleton(
-                borderRadius: BorderRadius.circular(10.r),
-              ),
+          CachedNetworkImage(
+            colorBlendMode: BlendMode.darken,
+            imageUrl: 'https://loremflickr.com/320/240/food',
+            placeholder: (context, url) => Skeleton(
+              borderRadius: BorderRadius.circular(10.r),
             ),
           ),
           32.horizontalSpace,
