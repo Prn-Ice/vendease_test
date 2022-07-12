@@ -21,9 +21,10 @@ class RecentOrdersSection extends StatelessWidget {
         ),
         Expanded(
           child: ListView.separated(
+            physics: const BouncingScrollPhysics(),
             itemCount: 3,
             padding: EdgeInsets.symmetric(vertical: 17.78.h, horizontal: 20.w),
-            itemBuilder: (_, count) => const _Order(),
+            itemBuilder: (_, count) => _Order(index: count),
             separatorBuilder: (_, count) => 12.29.verticalSpace,
           ),
         ),
@@ -33,7 +34,9 @@ class RecentOrdersSection extends StatelessWidget {
 }
 
 class _Order extends StatelessWidget {
-  const _Order();
+  const _Order({required this.index});
+
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +70,8 @@ class _Order extends StatelessWidget {
             width: 8.w,
             height: 73.h,
             decoration: BoxDecoration(
-              color: VendeaseColors.one0D12B,
+              color:
+                  index == 0 ? VendeaseColors.one0D12B : VendeaseColors.fB0B0B,
               borderRadius: borderRadiusLeft,
             ),
           ),

@@ -3,3 +3,5 @@ bricks:
   annoying_analysis_options: ^0.0.1
   feature_brick: ^0.4.0
   app_ui: ^0.0.4
+  heavy_dart_repository: ^0.0.1
+  heavy_repository_package: ^0.0.1

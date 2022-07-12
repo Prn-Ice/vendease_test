@@ -1,14 +1,53 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:fast_immutable_collections/fast_immutable_collections.dart';
+import 'package:products_repository/products_repository.dart';
+import 'package:vendease_test/injection/injection.dart';
+
 part 'products_state.dart';
 
 class ProductsCubit extends Cubit<ProductsState> {
-  ProductsCubit() : super(const ProductsInitial());
+  ProductsCubit({IProductsRepository? productsRepository})
+      : _productsRepository = productsRepository ?? resolve(),
+        super(const ProductsState());
 
-  /// A description for yourCustomFunction
-  FutureOr<void> yourCustomFunction() {
-    // TODO(Prn-Ice): Add Logic
+  final IProductsRepository _productsRepository;
+
+  FutureOr<void> onStarted() async {
+    final cachedProductsResponse = await _productsRepository.products;
+    final cachedProducts = cachedProductsResponse?.data;
+
+    if (cachedProducts?.isNotEmpty == true) {
+      emit(
+        state.copyWith(
+          products: cachedProducts?.lock,
+          status: ProductsStateStatus.data,
+        ),
+      );
+    }
+
+    final response = await _productsRepository.fetchProducts().run();
+
+    response.match(
+      (l) {
+        log(l);
+        emit(state.copyWith(status: ProductsStateStatus.error));
+      },
+      (r) {
+        emit(
+          state.copyWith(
+            products: r.data?.lock,
+            status: ProductsStateStatus.data,
+          ),
+        );
+      },
+    );
+  }
+
+  void onSearchTermChanged(String? searchTerm) {
+    emit(state.copyWith(searchTerm: searchTerm));
   }
 }

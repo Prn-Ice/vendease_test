@@ -91,7 +91,6 @@ class _CartItem extends StatelessWidget {
           51.horizontalSpace,
           Flexible(
             child: CachedNetworkImage(
-              color: VendeaseColors.primary.withOpacity(0.6),
               colorBlendMode: BlendMode.darken,
               imageUrl: 'https://loremflickr.com/320/240/food',
               placeholder: (context, url) => Skeleton(

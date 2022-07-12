@@ -6,29 +6,49 @@ part of 'products_cubit.dart';
 class ProductsState extends Equatable {
   /// {@macro products}
   const ProductsState({
-    this.customProperty = 'Default Value',
+    this.products = const IListConst([]),
+    this.status = ProductsStateStatus.loading,
+    this.searchTerm = '',
   });
 
-  /// A description for customProperty
-  final String customProperty;
+  final IList<Product> products;
+  final ProductsStateStatus status;
+  final String searchTerm;
 
   @override
-  List<Object> get props => [customProperty];
+  List<Object> get props => [products, status, searchTerm];
 
   /// Creates a copy of the current ProductsState with property changes
   ProductsState copyWith({
-    String? customProperty,
+    IList<Product>? products,
+    ProductsStateStatus? status,
+    String? searchTerm,
   }) {
     return ProductsState(
-      customProperty: customProperty ?? this.customProperty,
+      products: products ?? this.products,
+      status: status ?? this.status,
+      searchTerm: searchTerm ?? this.searchTerm,
     );
   }
+
+  @override
+  String toString() => 'ProductsState(products: ${products.length}, '
+      'status: $status, '
+      'searchTerm: $searchTerm)';
 }
 
-/// {@template products_initial}
-/// The initial state of ProductsState
-/// {@endtemplate}
-class ProductsInitial extends ProductsState {
-  /// {@macro products_initial}
-  const ProductsInitial() : super();
+enum ProductsStateStatus { loading, data, error }
+
+extension ProductsStateExtensions on ProductsState {
+  IList<Product> get matchingProjects => products
+      .where((e) => e.name.toLowerCase().contains(searchTerm.toLowerCase()))
+      .toIList();
+
+  IList<String> get categories => products
+      .map((e) => e.categoryDetails?.name ?? '')
+      .toIList()
+      .removeDuplicates()
+      .removeWhere((v) => v == '')
+      .sort()
+      .insert(0, 'All Products');
 }

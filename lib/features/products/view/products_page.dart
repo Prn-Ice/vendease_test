@@ -1,7 +1,10 @@
 import 'package:app_ui/app_ui.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter/material.dart';
+import 'package:humanizer/humanizer.dart';
+import 'package:products_repository/products_repository.dart';
 import 'package:skeleton_animation/skeleton_animation.dart';
 import 'package:vendease_test/features/products/cubit/cubit.dart';
 import 'package:vendease_test/l10n/l10n.dart';
@@ -17,7 +20,7 @@ class ProductsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ProductsCubit(),
+      create: (context) => ProductsCubit()..onStarted(),
       child: const _ProductsView(),
     );
   }
@@ -28,8 +31,15 @@ class _ProductsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final categories = context.select<ProductsCubit, IList<String>>(
+      (_) => _.state.categories,
+    );
+    final status = context.select<ProductsCubit, ProductsStateStatus>(
+      (_) => _.state.status,
+    );
+
     return DefaultTabController(
-      length: 5,
+      length: categories.length,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -48,17 +58,12 @@ class _ProductsView extends StatelessWidget {
           14.verticalSpace,
           const _SearchBox(),
           28.verticalSpace,
-          const _TabBar(),
           Expanded(
-            child: ListView.separated(
-              padding: EdgeInsets.symmetric(
-                vertical: 20.h,
-                horizontal: 20.w,
-              ),
-              itemCount: 10,
-              itemBuilder: (_, count) => const _Product(),
-              separatorBuilder: (_, count) => 12.verticalSpace,
-            ),
+            child: status == ProductsStateStatus.loading
+                ? const Center(child: CircularProgressIndicator())
+                : status == ProductsStateStatus.error
+                    ? const Text('An error occurred')
+                    : const _Body(),
           ),
         ],
       ),
@@ -66,8 +71,64 @@ class _ProductsView extends StatelessWidget {
   }
 }
 
+class _Body extends StatelessWidget {
+  const _Body();
+
+  @override
+  Widget build(BuildContext context) {
+    final categories = context.select<ProductsCubit, IList<String>>(
+      (_) => _.state.categories,
+    );
+    final products = context.select<ProductsCubit, IList<Product>>(
+      (_) => _.state.matchingProjects,
+    );
+
+    return Column(
+      children: [
+        const _TabBar(),
+        Expanded(
+          child: TabBarView(
+            children: categories.map((e) {
+              return _Products(
+                products: categories.indexOf(e) == 0
+                    ? products
+                    : products
+                        .where((v) => v.categoryDetails?.name == e)
+                        .toIList(),
+              );
+            }).toList(),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _Products extends StatelessWidget {
+  const _Products({required this.products});
+
+  final IList<Product> products;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+      padding: EdgeInsets.symmetric(
+        vertical: 20.h,
+        horizontal: 20.w,
+      ),
+      itemCount: products.length,
+      itemBuilder: (_, count) => _Product(product: products[count]),
+      separatorBuilder: (_, count) => 12.verticalSpace,
+    );
+  }
+}
+
 class _Product extends StatelessWidget {
-  const _Product();
+  const _Product({
+    required this.product,
+  });
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -90,9 +151,8 @@ class _Product extends StatelessWidget {
           CachedNetworkImage(
             width: 48.w,
             height: 48.w,
-            color: VendeaseColors.primary.withOpacity(0.6),
             colorBlendMode: BlendMode.darken,
-            imageUrl: 'https://loremflickr.com/320/240/food',
+            imageUrl: product.image ?? 'https://loremflickr.com/320/240/food',
             placeholder: (context, url) => Skeleton(
               borderRadius: BorderRadius.circular(10.r),
             ),
@@ -105,7 +165,7 @@ class _Product extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        'Wind air freshner assorted x600000',
+                        product.name,
                         style: VendeaseTextStyle.gilroyMedium14
                             .copyWith(color: const Color(0xFF182841)),
                       ),
@@ -118,7 +178,8 @@ class _Product extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'Toiletries',
+                      product.categoryDetails?.name?.toSentenceCase() ??
+                          'Category',
                       style: VendeaseTextStyle.gilroyRegular12
                           .copyWith(color: const Color(0xFF8091B3)),
                     ),
@@ -132,7 +193,7 @@ class _Product extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'Each',
+                      product.weightUnit?.toSentenceCase() ?? 'Each',
                       style: VendeaseTextStyle.gilroyMedium14
                           .copyWith(color: const Color(0xFF182841)),
                     ),
@@ -140,7 +201,7 @@ class _Product extends StatelessWidget {
                     Assets.images.products.caretDown.svg(width: 8.w),
                     const Spacer(),
                     NairaWidget(
-                      amount: 7350,
+                      amount: product.vendeasePrice ?? 0,
                       amountStyle: VendeaseTextStyle.gilroySemiBold14
                           .copyWith(color: const Color(0xFF182841)),
                       nairaColor: const Color(0xFF182841),
@@ -230,19 +291,17 @@ class _TabBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const DecoratedBox(
-      decoration: BoxDecoration(
+    final categories = context.select<ProductsCubit, IList<String>>(
+      (_) => _.state.categories,
+    );
+
+    return DecoratedBox(
+      decoration: const BoxDecoration(
         border: Border(bottom: BorderSide(color: Color(0xFFDCE5F4))),
       ),
       child: TabBar(
         isScrollable: true,
-        tabs: [
-          Text('All Products'),
-          Text('Fruits and Vegetables'),
-          Text('Toiletries'),
-          Text('All Products'),
-          Text('All Products'),
-        ],
+        tabs: categories.map((e) => Text(e.toTitleCase())).toList(),
       ),
     );
   }
@@ -281,6 +340,8 @@ class _SearchBox extends StatelessWidget {
           ),
         ),
         style: VendeaseTextStyle.gilroyRegular16,
+        onChanged: (val) =>
+            context.read<ProductsCubit>().onSearchTermChanged(val),
       ),
     );
   }
