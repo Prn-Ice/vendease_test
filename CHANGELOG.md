@@ -1,3 +1,7 @@
+## 1.1.0-dev.1
+
+ - **FIX**: hopefully final update.
+
 ## 1.1.0-dev.0
 
  - **FIX**: minor updates.
