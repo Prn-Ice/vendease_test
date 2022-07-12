@@ -1,9 +1,9 @@
 import 'package:app_ui/app_ui.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:skeleton_animation/skeleton_animation.dart';
 import 'package:vendease_test/extensions/extensions.dart';
 import 'package:vendease_test/l10n/l10n.dart';
+import 'package:vendease_test/router/router.dart';
 
 class ProductsSection extends StatelessWidget {
   const ProductsSection({super.key});
@@ -31,21 +31,43 @@ class _Products extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 144.h,
-      child: ListView.separated(
+      child: ListView(
         padding: EdgeInsets.only(left: 20.w),
         scrollDirection: Axis.horizontal,
-        itemCount: 3,
-        itemBuilder: (_, count) {
-          return const _Product();
-        },
-        separatorBuilder: (_, count) => 18.77.horizontalSpace,
+        children: [
+          _Product(
+            color: const Color(0xFFDDE9FB),
+            title: 'Drinks',
+            imagePath: Assets.images.home.drinks.path,
+          ),
+          18.77.horizontalSpace,
+          _Product(
+            color: const Color(0xFFFFDDED),
+            title: 'Processed can',
+            imagePath: Assets.images.home.cans.path,
+          ),
+          18.77.horizontalSpace,
+          _Product(
+            color: const Color(0xFFFADBCD),
+            title: 'Seafoods',
+            imagePath: Assets.images.home.seafood.path,
+          ),
+        ],
       ),
     );
   }
 }
 
 class _Product extends StatelessWidget {
-  const _Product();
+  const _Product({
+    required this.imagePath,
+    required this.color,
+    required this.title,
+  });
+
+  final String imagePath;
+  final Color color;
+  final String title;
 
   // TODO(Prn-Ice): Add transform
   @override
@@ -54,7 +76,7 @@ class _Product extends StatelessWidget {
       height: 144.h,
       width: 128.w,
       decoration: BoxDecoration(
-        color: Colors.amber,
+        color: color,
         borderRadius: BorderRadius.circular(10.r),
       ),
       padding: EdgeInsets.only(left: 10.w, right: 10.w),
@@ -63,13 +85,10 @@ class _Product extends StatelessWidget {
         children: [
           22.99.verticalSpace,
           Expanded(
-            child: CachedNetworkImage(
-              color: VendeaseColors.primary.withOpacity(0.6),
-              colorBlendMode: BlendMode.darken,
-              imageUrl: 'https://loremflickr.com/320/240/food',
-              placeholder: (context, url) => Skeleton(
-                borderRadius: BorderRadius.circular(10.r),
-              ),
+            child: Image.asset(
+              imagePath,
+              package: 'app_ui',
+              fit: BoxFit.cover,
             ),
           ),
           14.54.verticalSpace,
@@ -104,7 +123,9 @@ class _Header extends StatelessWidget {
             context.l10n.homeProductsSeeAll,
             style: VendeaseTextStyle.gilroyMedium14
                 .copyWith(color: VendeaseColors.primary),
-          ).toSimpleButton(),
+          ).toSimpleButton(
+            onPressed: () => context.navigateTo(const ProductsRoute()),
+          ),
           16.horizontalSpace,
         ],
       ),

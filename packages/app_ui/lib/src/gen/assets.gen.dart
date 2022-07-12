@@ -55,12 +55,23 @@ class $AssetsImagesHomeGen {
   SvgGenImage get arrowDown =>
       const SvgGenImage('assets/images/home/arrow_down.svg');
 
+  /// File path: assets/images/home/cans.png
+  AssetGenImage get cans => const AssetGenImage('assets/images/home/cans.png');
+
   /// File path: assets/images/home/cart.svg
   SvgGenImage get cart => const SvgGenImage('assets/images/home/cart.svg');
 
   /// File path: assets/images/home/demo_user.png
   AssetGenImage get demoUser =>
       const AssetGenImage('assets/images/home/demo_user.png');
+
+  /// File path: assets/images/home/drinks.png
+  AssetGenImage get drinks =>
+      const AssetGenImage('assets/images/home/drinks.png');
+
+  /// File path: assets/images/home/seafood.png
+  AssetGenImage get seafood =>
+      const AssetGenImage('assets/images/home/seafood.png');
 }
 
 class $AssetsImagesNavBarGen {

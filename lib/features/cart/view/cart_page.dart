@@ -307,9 +307,10 @@ class _Header extends StatelessWidget {
       padding: EdgeInsets.only(left: 34.17.w, right: 28.w),
       child: Row(
         children: [
-          Assets.images.cart.back
-              .svg(width: 12.66.w)
-              .toSimpleButton(onPressed: () => context.popRoute()),
+          Assets.images.cart.back.svg(width: 12.66.w).toSimpleButton(
+                onPressed: () => context.popRoute(),
+                padding: const EdgeInsets.all(4),
+              ),
           32.17.horizontalSpace,
           Text(
             context.l10n.cartTitle,
