@@ -99,16 +99,16 @@ class VendeaseTheme {
   }
 
   static TabBarTheme get _tabBarTheme {
-    return const TabBarTheme(
-      indicator: UnderlineTabIndicator(
-        borderSide: BorderSide(
-          width: 2,
-          color: VendeaseColors.primary,
-        ),
+    return TabBarTheme(
+      indicator: const UnderlineTabIndicator(
+        borderSide: BorderSide(color: VendeaseColors.primary),
       ),
       labelColor: VendeaseColors.primary,
-      unselectedLabelColor: VendeaseColors.unselected,
+      unselectedLabelColor: const Color(0xFF5B5B5B),
       indicatorSize: TabBarIndicatorSize.tab,
+      labelStyle: VendeaseTextStyle.gilroyMedium14,
+      labelPadding: EdgeInsets.symmetric(vertical: 4, horizontal: (27 / 2).w),
+      unselectedLabelStyle: VendeaseTextStyle.gilroyMedium14,
     );
   }
 

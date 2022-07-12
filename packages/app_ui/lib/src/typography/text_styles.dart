@@ -78,6 +78,13 @@ class VendeaseTextStyle {
     );
   }
 
+  static TextStyle get gilroySemiBold14 {
+    return _baseTextStyle.copyWith(
+      fontSize: 14.sp,
+      fontWeight: VendeaseFontWeight.semiBold,
+    );
+  }
+
   /// Subtitle 2 Text Style
   static TextStyle get latoRegular14 {
     return TextStyle(
@@ -139,6 +146,13 @@ class VendeaseTextStyle {
     return _baseTextStyle.copyWith(
       fontSize: 14.sp,
       fontWeight: VendeaseFontWeight.medium,
+    );
+  }
+
+  static TextStyle get gilroyRegular14 {
+    return _baseTextStyle.copyWith(
+      fontSize: 14.sp,
+      fontWeight: VendeaseFontWeight.regular,
     );
   }
 

@@ -116,5 +116,9 @@
   "cartCheckOut": "Check out",
   "@cartCheckOut": {
     "description": "Text displayed on checkout button, when pressed should proceed to payment"
+  },
+  "productTitle": "Products",
+  "@productTitle": {
+    "description": "Title text shown on products tab"
   }
 }
