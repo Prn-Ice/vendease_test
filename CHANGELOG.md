@@ -1,3 +1,12 @@
+## 1.1.0-dev.4
+
+ - **FIX**: update endpoint and model.
+ - **FIX**: remove flexible widget.
+ - **FIX**: minor updates.
+ - **FIX**: fix typos.
+ - **FIX**: hopefully final update.
+ - **DOCS**: update readme.
+
 ## 1.1.0-dev.3
 
  - **FIX**: remove flexible widget.
