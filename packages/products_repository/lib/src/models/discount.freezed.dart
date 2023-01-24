@@ -20,10 +20,8 @@ Discount _$DiscountFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Discount {
-  @JsonKey(name: 'discount_type')
   String? get discountType => throw _privateConstructorUsedError;
-  @JsonKey(name: 'discount_value')
-  int? get discountValue => throw _privateConstructorUsedError;
+  double? get discountValue => throw _privateConstructorUsedError;
   @JsonKey(name: '_id')
   String? get id => throw _privateConstructorUsedError;
 
@@ -36,21 +34,25 @@ mixin _$Discount {
 /// @nodoc
 abstract class $DiscountCopyWith<$Res> {
   factory $DiscountCopyWith(Discount value, $Res Function(Discount) then) =
-      _$DiscountCopyWithImpl<$Res>;
+      _$DiscountCopyWithImpl<$Res, Discount>;
+  @useResult
   $Res call(
-      {@JsonKey(name: 'discount_type') String? discountType,
-      @JsonKey(name: 'discount_value') int? discountValue,
+      {String? discountType,
+      double? discountValue,
       @JsonKey(name: '_id') String? id});
 }
 
 /// @nodoc
-class _$DiscountCopyWithImpl<$Res> implements $DiscountCopyWith<$Res> {
+class _$DiscountCopyWithImpl<$Res, $Val extends Discount>
+    implements $DiscountCopyWith<$Res> {
   _$DiscountCopyWithImpl(this._value, this._then);
 
-  final Discount _value;
   // ignore: unused_field
-  final $Res Function(Discount) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? discountType = freezed,
@@ -58,19 +60,19 @@ class _$DiscountCopyWithImpl<$Res> implements $DiscountCopyWith<$Res> {
     Object? id = freezed,
   }) {
     return _then(_value.copyWith(
-      discountType: discountType == freezed
+      discountType: freezed == discountType
           ? _value.discountType
           : discountType // ignore: cast_nullable_to_non_nullable
               as String?,
-      discountValue: discountValue == freezed
+      discountValue: freezed == discountValue
           ? _value.discountValue
           : discountValue // ignore: cast_nullable_to_non_nullable
-              as int?,
-      id: id == freezed
+              as double?,
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -80,22 +82,22 @@ abstract class _$$_DiscountCopyWith<$Res> implements $DiscountCopyWith<$Res> {
           _$_Discount value, $Res Function(_$_Discount) then) =
       __$$_DiscountCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
-      {@JsonKey(name: 'discount_type') String? discountType,
-      @JsonKey(name: 'discount_value') int? discountValue,
+      {String? discountType,
+      double? discountValue,
       @JsonKey(name: '_id') String? id});
 }
 
 /// @nodoc
-class __$$_DiscountCopyWithImpl<$Res> extends _$DiscountCopyWithImpl<$Res>
+class __$$_DiscountCopyWithImpl<$Res>
+    extends _$DiscountCopyWithImpl<$Res, _$_Discount>
     implements _$$_DiscountCopyWith<$Res> {
   __$$_DiscountCopyWithImpl(
       _$_Discount _value, $Res Function(_$_Discount) _then)
-      : super(_value, (v) => _then(v as _$_Discount));
+      : super(_value, _then);
 
-  @override
-  _$_Discount get _value => super._value as _$_Discount;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? discountType = freezed,
@@ -103,15 +105,15 @@ class __$$_DiscountCopyWithImpl<$Res> extends _$DiscountCopyWithImpl<$Res>
     Object? id = freezed,
   }) {
     return _then(_$_Discount(
-      discountType: discountType == freezed
+      discountType: freezed == discountType
           ? _value.discountType
           : discountType // ignore: cast_nullable_to_non_nullable
               as String?,
-      discountValue: discountValue == freezed
+      discountValue: freezed == discountValue
           ? _value.discountValue
           : discountValue // ignore: cast_nullable_to_non_nullable
-              as int?,
-      id: id == freezed
+              as double?,
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -122,20 +124,16 @@ class __$$_DiscountCopyWithImpl<$Res> extends _$DiscountCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Discount implements _Discount {
-  _$_Discount(
-      {@JsonKey(name: 'discount_type') this.discountType,
-      @JsonKey(name: 'discount_value') this.discountValue,
-      @JsonKey(name: '_id') this.id});
+  const _$_Discount(
+      {this.discountType, this.discountValue, @JsonKey(name: '_id') this.id});
 
   factory _$_Discount.fromJson(Map<String, dynamic> json) =>
       _$$_DiscountFromJson(json);
 
   @override
-  @JsonKey(name: 'discount_type')
   final String? discountType;
   @override
-  @JsonKey(name: 'discount_value')
-  final int? discountValue;
+  final double? discountValue;
   @override
   @JsonKey(name: '_id')
   final String? id;
@@ -150,46 +148,43 @@ class _$_Discount implements _Discount {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Discount &&
-            const DeepCollectionEquality()
-                .equals(other.discountType, discountType) &&
-            const DeepCollectionEquality()
-                .equals(other.discountValue, discountValue) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            (identical(other.discountType, discountType) ||
+                other.discountType == discountType) &&
+            (identical(other.discountValue, discountValue) ||
+                other.discountValue == discountValue) &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(discountType),
-      const DeepCollectionEquality().hash(discountValue),
-      const DeepCollectionEquality().hash(id));
+  int get hashCode => Object.hash(runtimeType, discountType, discountValue, id);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DiscountCopyWith<_$_Discount> get copyWith =>
       __$$_DiscountCopyWithImpl<_$_Discount>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DiscountToJson(this);
+    return _$$_DiscountToJson(
+      this,
+    );
   }
 }
 
 abstract class _Discount implements Discount {
-  factory _Discount(
-      {@JsonKey(name: 'discount_type') final String? discountType,
-      @JsonKey(name: 'discount_value') final int? discountValue,
+  const factory _Discount(
+      {final String? discountType,
+      final double? discountValue,
       @JsonKey(name: '_id') final String? id}) = _$_Discount;
 
   factory _Discount.fromJson(Map<String, dynamic> json) = _$_Discount.fromJson;
 
   @override
-  @JsonKey(name: 'discount_type')
   String? get discountType;
   @override
-  @JsonKey(name: 'discount_value')
-  int? get discountValue;
+  double? get discountValue;
   @override
   @JsonKey(name: '_id')
   String? get id;

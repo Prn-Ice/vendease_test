@@ -21,9 +21,7 @@ CategoryDetails _$CategoryDetailsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CategoryDetails {
   String? get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'tax_exempt')
-  bool get taxExempt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'sub_category')
+  bool? get taxExempt => throw _privateConstructorUsedError;
   String? get subCategory => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,22 +34,22 @@ mixin _$CategoryDetails {
 abstract class $CategoryDetailsCopyWith<$Res> {
   factory $CategoryDetailsCopyWith(
           CategoryDetails value, $Res Function(CategoryDetails) then) =
-      _$CategoryDetailsCopyWithImpl<$Res>;
-  $Res call(
-      {String? name,
-      @JsonKey(name: 'tax_exempt') bool taxExempt,
-      @JsonKey(name: 'sub_category') String? subCategory});
+      _$CategoryDetailsCopyWithImpl<$Res, CategoryDetails>;
+  @useResult
+  $Res call({String? name, bool? taxExempt, String? subCategory});
 }
 
 /// @nodoc
-class _$CategoryDetailsCopyWithImpl<$Res>
+class _$CategoryDetailsCopyWithImpl<$Res, $Val extends CategoryDetails>
     implements $CategoryDetailsCopyWith<$Res> {
   _$CategoryDetailsCopyWithImpl(this._value, this._then);
 
-  final CategoryDetails _value;
   // ignore: unused_field
-  final $Res Function(CategoryDetails) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = freezed,
@@ -59,19 +57,19 @@ class _$CategoryDetailsCopyWithImpl<$Res>
     Object? subCategory = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      taxExempt: taxExempt == freezed
+      taxExempt: freezed == taxExempt
           ? _value.taxExempt
           : taxExempt // ignore: cast_nullable_to_non_nullable
-              as bool,
-      subCategory: subCategory == freezed
+              as bool?,
+      subCategory: freezed == subCategory
           ? _value.subCategory
           : subCategory // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -82,23 +80,19 @@ abstract class _$$_CategoryDetailsCopyWith<$Res>
           _$_CategoryDetails value, $Res Function(_$_CategoryDetails) then) =
       __$$_CategoryDetailsCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {String? name,
-      @JsonKey(name: 'tax_exempt') bool taxExempt,
-      @JsonKey(name: 'sub_category') String? subCategory});
+  @useResult
+  $Res call({String? name, bool? taxExempt, String? subCategory});
 }
 
 /// @nodoc
 class __$$_CategoryDetailsCopyWithImpl<$Res>
-    extends _$CategoryDetailsCopyWithImpl<$Res>
+    extends _$CategoryDetailsCopyWithImpl<$Res, _$_CategoryDetails>
     implements _$$_CategoryDetailsCopyWith<$Res> {
   __$$_CategoryDetailsCopyWithImpl(
       _$_CategoryDetails _value, $Res Function(_$_CategoryDetails) _then)
-      : super(_value, (v) => _then(v as _$_CategoryDetails));
+      : super(_value, _then);
 
-  @override
-  _$_CategoryDetails get _value => super._value as _$_CategoryDetails;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = freezed,
@@ -106,15 +100,15 @@ class __$$_CategoryDetailsCopyWithImpl<$Res>
     Object? subCategory = freezed,
   }) {
     return _then(_$_CategoryDetails(
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      taxExempt: taxExempt == freezed
+      taxExempt: freezed == taxExempt
           ? _value.taxExempt
           : taxExempt // ignore: cast_nullable_to_non_nullable
-              as bool,
-      subCategory: subCategory == freezed
+              as bool?,
+      subCategory: freezed == subCategory
           ? _value.subCategory
           : subCategory // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -125,10 +119,7 @@ class __$$_CategoryDetailsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CategoryDetails implements _CategoryDetails {
-  _$_CategoryDetails(
-      {this.name,
-      @JsonKey(name: 'tax_exempt') this.taxExempt = false,
-      @JsonKey(name: 'sub_category') this.subCategory});
+  const _$_CategoryDetails({this.name, this.taxExempt, this.subCategory});
 
   factory _$_CategoryDetails.fromJson(Map<String, dynamic> json) =>
       _$$_CategoryDetailsFromJson(json);
@@ -136,10 +127,8 @@ class _$_CategoryDetails implements _CategoryDetails {
   @override
   final String? name;
   @override
-  @JsonKey(name: 'tax_exempt')
-  final bool taxExempt;
+  final bool? taxExempt;
   @override
-  @JsonKey(name: 'sub_category')
   final String? subCategory;
 
   @override
@@ -152,37 +141,36 @@ class _$_CategoryDetails implements _CategoryDetails {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CategoryDetails &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.taxExempt, taxExempt) &&
-            const DeepCollectionEquality()
-                .equals(other.subCategory, subCategory));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.taxExempt, taxExempt) ||
+                other.taxExempt == taxExempt) &&
+            (identical(other.subCategory, subCategory) ||
+                other.subCategory == subCategory));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(taxExempt),
-      const DeepCollectionEquality().hash(subCategory));
+  int get hashCode => Object.hash(runtimeType, name, taxExempt, subCategory);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CategoryDetailsCopyWith<_$_CategoryDetails> get copyWith =>
       __$$_CategoryDetailsCopyWithImpl<_$_CategoryDetails>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CategoryDetailsToJson(this);
+    return _$$_CategoryDetailsToJson(
+      this,
+    );
   }
 }
 
 abstract class _CategoryDetails implements CategoryDetails {
-  factory _CategoryDetails(
-          {final String? name,
-          @JsonKey(name: 'tax_exempt') final bool taxExempt,
-          @JsonKey(name: 'sub_category') final String? subCategory}) =
-      _$_CategoryDetails;
+  const factory _CategoryDetails(
+      {final String? name,
+      final bool? taxExempt,
+      final String? subCategory}) = _$_CategoryDetails;
 
   factory _CategoryDetails.fromJson(Map<String, dynamic> json) =
       _$_CategoryDetails.fromJson;
@@ -190,10 +178,8 @@ abstract class _CategoryDetails implements CategoryDetails {
   @override
   String? get name;
   @override
-  @JsonKey(name: 'tax_exempt')
-  bool get taxExempt;
+  bool? get taxExempt;
   @override
-  @JsonKey(name: 'sub_category')
   String? get subCategory;
   @override
   @JsonKey(ignore: true)

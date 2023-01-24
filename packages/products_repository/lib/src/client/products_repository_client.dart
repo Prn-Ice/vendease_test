@@ -9,10 +9,6 @@ abstract class ProductsRepositoryClient {
   factory ProductsRepositoryClient(Dio dio, {String baseUrl}) =
       _ProductsRepositoryClient;
 
-  @GET(
-    'https://live-vendease.herokuapp.com/product?'
-    r'$limit=50&&name[$search]=co&$skip=0&'
-    'cityCode=LA724629&countryCode=NI904222',
-  )
+  @GET('https://prince-vendese.onrender.com/products')
   Future<ProductsResponse> getProjects();
 }

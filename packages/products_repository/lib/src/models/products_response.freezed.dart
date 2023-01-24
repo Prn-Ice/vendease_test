@@ -23,7 +23,8 @@ mixin _$ProductsResponse {
   int? get total => throw _privateConstructorUsedError;
   int? get limit => throw _privateConstructorUsedError;
   int? get skip => throw _privateConstructorUsedError;
-  List<Product>? get data => throw _privateConstructorUsedError;
+  @JsonKey(name: 'data.products')
+  List<Product>? get products => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,44 +36,51 @@ mixin _$ProductsResponse {
 abstract class $ProductsResponseCopyWith<$Res> {
   factory $ProductsResponseCopyWith(
           ProductsResponse value, $Res Function(ProductsResponse) then) =
-      _$ProductsResponseCopyWithImpl<$Res>;
-  $Res call({int? total, int? limit, int? skip, List<Product>? data});
+      _$ProductsResponseCopyWithImpl<$Res, ProductsResponse>;
+  @useResult
+  $Res call(
+      {int? total,
+      int? limit,
+      int? skip,
+      @JsonKey(name: 'data.products') List<Product>? products});
 }
 
 /// @nodoc
-class _$ProductsResponseCopyWithImpl<$Res>
+class _$ProductsResponseCopyWithImpl<$Res, $Val extends ProductsResponse>
     implements $ProductsResponseCopyWith<$Res> {
   _$ProductsResponseCopyWithImpl(this._value, this._then);
 
-  final ProductsResponse _value;
   // ignore: unused_field
-  final $Res Function(ProductsResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? total = freezed,
     Object? limit = freezed,
     Object? skip = freezed,
-    Object? data = freezed,
+    Object? products = freezed,
   }) {
     return _then(_value.copyWith(
-      total: total == freezed
+      total: freezed == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as int?,
-      limit: limit == freezed
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
               as int?,
-      skip: skip == freezed
+      skip: freezed == skip
           ? _value.skip
           : skip // ignore: cast_nullable_to_non_nullable
               as int?,
-      data: data == freezed
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
+      products: freezed == products
+          ? _value.products
+          : products // ignore: cast_nullable_to_non_nullable
               as List<Product>?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -83,43 +91,46 @@ abstract class _$$_ProductsResponseCopyWith<$Res>
           _$_ProductsResponse value, $Res Function(_$_ProductsResponse) then) =
       __$$_ProductsResponseCopyWithImpl<$Res>;
   @override
-  $Res call({int? total, int? limit, int? skip, List<Product>? data});
+  @useResult
+  $Res call(
+      {int? total,
+      int? limit,
+      int? skip,
+      @JsonKey(name: 'data.products') List<Product>? products});
 }
 
 /// @nodoc
 class __$$_ProductsResponseCopyWithImpl<$Res>
-    extends _$ProductsResponseCopyWithImpl<$Res>
+    extends _$ProductsResponseCopyWithImpl<$Res, _$_ProductsResponse>
     implements _$$_ProductsResponseCopyWith<$Res> {
   __$$_ProductsResponseCopyWithImpl(
       _$_ProductsResponse _value, $Res Function(_$_ProductsResponse) _then)
-      : super(_value, (v) => _then(v as _$_ProductsResponse));
+      : super(_value, _then);
 
-  @override
-  _$_ProductsResponse get _value => super._value as _$_ProductsResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? total = freezed,
     Object? limit = freezed,
     Object? skip = freezed,
-    Object? data = freezed,
+    Object? products = freezed,
   }) {
     return _then(_$_ProductsResponse(
-      total: total == freezed
+      total: freezed == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as int?,
-      limit: limit == freezed
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
               as int?,
-      skip: skip == freezed
+      skip: freezed == skip
           ? _value.skip
           : skip // ignore: cast_nullable_to_non_nullable
               as int?,
-      data: data == freezed
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
+      products: freezed == products
+          ? _value._products
+          : products // ignore: cast_nullable_to_non_nullable
               as List<Product>?,
     ));
   }
@@ -128,9 +139,12 @@ class __$$_ProductsResponseCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ProductsResponse implements _ProductsResponse {
-  _$_ProductsResponse(
-      {this.total, this.limit, this.skip, final List<Product>? data})
-      : _data = data;
+  const _$_ProductsResponse(
+      {this.total,
+      this.limit,
+      this.skip,
+      @JsonKey(name: 'data.products') final List<Product>? products})
+      : _products = products;
 
   factory _$_ProductsResponse.fromJson(Map<String, dynamic> json) =>
       _$$_ProductsResponseFromJson(json);
@@ -141,10 +155,11 @@ class _$_ProductsResponse implements _ProductsResponse {
   final int? limit;
   @override
   final int? skip;
-  final List<Product>? _data;
+  final List<Product>? _products;
   @override
-  List<Product>? get data {
-    final value = _data;
+  @JsonKey(name: 'data.products')
+  List<Product>? get products {
+    final value = _products;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
@@ -152,7 +167,7 @@ class _$_ProductsResponse implements _ProductsResponse {
 
   @override
   String toString() {
-    return 'ProductsResponse(total: $total, limit: $limit, skip: $skip, data: $data)';
+    return 'ProductsResponse(total: $total, limit: $limit, skip: $skip, products: $products)';
   }
 
   @override
@@ -160,38 +175,38 @@ class _$_ProductsResponse implements _ProductsResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ProductsResponse &&
-            const DeepCollectionEquality().equals(other.total, total) &&
-            const DeepCollectionEquality().equals(other.limit, limit) &&
-            const DeepCollectionEquality().equals(other.skip, skip) &&
-            const DeepCollectionEquality().equals(other._data, _data));
+            (identical(other.total, total) || other.total == total) &&
+            (identical(other.limit, limit) || other.limit == limit) &&
+            (identical(other.skip, skip) || other.skip == skip) &&
+            const DeepCollectionEquality().equals(other._products, _products));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(total),
-      const DeepCollectionEquality().hash(limit),
-      const DeepCollectionEquality().hash(skip),
-      const DeepCollectionEquality().hash(_data));
+  int get hashCode => Object.hash(runtimeType, total, limit, skip,
+      const DeepCollectionEquality().hash(_products));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ProductsResponseCopyWith<_$_ProductsResponse> get copyWith =>
       __$$_ProductsResponseCopyWithImpl<_$_ProductsResponse>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProductsResponseToJson(this);
+    return _$$_ProductsResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _ProductsResponse implements ProductsResponse {
-  factory _ProductsResponse(
-      {final int? total,
-      final int? limit,
-      final int? skip,
-      final List<Product>? data}) = _$_ProductsResponse;
+  const factory _ProductsResponse(
+          {final int? total,
+          final int? limit,
+          final int? skip,
+          @JsonKey(name: 'data.products') final List<Product>? products}) =
+      _$_ProductsResponse;
 
   factory _ProductsResponse.fromJson(Map<String, dynamic> json) =
       _$_ProductsResponse.fromJson;
@@ -203,7 +218,8 @@ abstract class _ProductsResponse implements ProductsResponse {
   @override
   int? get skip;
   @override
-  List<Product>? get data;
+  @JsonKey(name: 'data.products')
+  List<Product>? get products;
   @override
   @JsonKey(ignore: true)
   _$$_ProductsResponseCopyWith<_$_ProductsResponse> get copyWith =>

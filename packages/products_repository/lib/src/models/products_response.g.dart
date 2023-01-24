@@ -11,7 +11,7 @@ _$_ProductsResponse _$$_ProductsResponseFromJson(Map<String, dynamic> json) =>
       total: json['total'] as int?,
       limit: json['limit'] as int?,
       skip: json['skip'] as int?,
-      data: (json['data'] as List<dynamic>?)
+      products: (json['data.products'] as List<dynamic>?)
           ?.map((e) => Product.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
@@ -21,5 +21,5 @@ Map<String, dynamic> _$$_ProductsResponseToJson(_$_ProductsResponse instance) =>
       'total': instance.total,
       'limit': instance.limit,
       'skip': instance.skip,
-      'data': instance.data,
+      'data.products': instance.products?.map((e) => e.toJson()).toList(),
     };

@@ -8,7 +8,7 @@ part of 'discount.dart';
 
 _$_Discount _$$_DiscountFromJson(Map<String, dynamic> json) => _$_Discount(
       discountType: json['discount_type'] as String?,
-      discountValue: json['discount_value'] as int?,
+      discountValue: (json['discount_value'] as num?)?.toDouble(),
       id: json['_id'] as String?,
     );
 

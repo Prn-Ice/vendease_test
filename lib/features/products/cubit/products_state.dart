@@ -41,7 +41,9 @@ enum ProductsStateStatus { loading, data, error }
 
 extension ProductsStateExtensions on ProductsState {
   IList<Product> get matchingProjects => products
-      .where((e) => e.name.toLowerCase().contains(searchTerm.toLowerCase()))
+      .where(
+        (e) => (e.name ?? '').toLowerCase().contains(searchTerm.toLowerCase()),
+      )
       .toIList();
 
   IList<String> get categories => products

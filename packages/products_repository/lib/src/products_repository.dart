@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:products_repository/products_repository.dart';
@@ -30,7 +32,11 @@ class ProductsRepository implements IProductsRepository {
 
         return response;
       },
-      (error, stackTrace) => 'Error occurred',
+      (error, stackTrace) {
+        log('fetchProducts error', error: error, stackTrace: stackTrace);
+
+        return 'Error occurred';
+      },
     );
   }
 

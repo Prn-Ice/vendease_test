@@ -62,7 +62,7 @@ class _ProductsView extends StatelessWidget {
             child: status == ProductsStateStatus.loading
                 ? const Center(child: CircularProgressIndicator())
                 : status == ProductsStateStatus.error
-                    ? const Text('An error occurred')
+                    ? const Center(child: Text('An error occurred'))
                     : const _Body(),
           ),
         ],
@@ -165,7 +165,7 @@ class _Product extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        product.name,
+                        product.name ?? 'Unknown',
                         style: VendeaseTextStyle.gilroyMedium14
                             .copyWith(color: const Color(0xFF182841)),
                       ),

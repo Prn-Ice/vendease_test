@@ -1,3 +1,2 @@
-export 'products_response/product.dart';
-export 'products_response/products_response.dart';
-export 'user/user.dart';
+export 'product.dart';
+export 'products_response.dart';

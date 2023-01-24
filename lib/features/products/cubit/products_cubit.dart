@@ -18,7 +18,7 @@ class ProductsCubit extends Cubit<ProductsState> {
 
   FutureOr<void> onStarted() async {
     final cachedProductsResponse = await _productsRepository.products;
-    final cachedProducts = cachedProductsResponse?.data;
+    final cachedProducts = cachedProductsResponse?.products;
 
     if (cachedProducts?.isNotEmpty == true) {
       emit(
@@ -33,13 +33,12 @@ class ProductsCubit extends Cubit<ProductsState> {
 
     response.match(
       (l) {
-        log(l);
         emit(state.copyWith(status: ProductsStateStatus.error));
       },
       (r) {
         emit(
           state.copyWith(
-            products: r.data?.lock,
+            products: r.products?.lock,
             status: ProductsStateStatus.data,
           ),
         );

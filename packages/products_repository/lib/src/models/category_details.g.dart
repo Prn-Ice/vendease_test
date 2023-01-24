@@ -9,7 +9,7 @@ part of 'category_details.dart';
 _$_CategoryDetails _$$_CategoryDetailsFromJson(Map<String, dynamic> json) =>
     _$_CategoryDetails(
       name: json['name'] as String?,
-      taxExempt: json['tax_exempt'] as bool? ?? false,
+      taxExempt: json['tax_exempt'] as bool?,
       subCategory: json['sub_category'] as String?,
     );
 
