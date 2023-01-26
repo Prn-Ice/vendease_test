@@ -279,8 +279,6 @@ class _AvailabilityDropdown extends StatelessWidget {
         ),
         dropdownPadding: EdgeInsets.fromLTRB(12.w, 12.h, 19.w, 0),
         itemPadding: EdgeInsets.zero,
-        customItemsIndexes: const [1, 3],
-        customItemsHeight: 20.h,
       ),
     );
   }

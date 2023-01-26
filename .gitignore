@@ -127,3 +127,4 @@ app.*.map.json
 !.idea/runConfigurations/
 distribute_options.yaml
 vendease-upload-key.keystore
+dist/

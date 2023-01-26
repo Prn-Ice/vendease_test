@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -20,7 +19,7 @@ class ProductsCubit extends Cubit<ProductsState> {
     final cachedProductsResponse = await _productsRepository.products;
     final cachedProducts = cachedProductsResponse?.products;
 
-    if (cachedProducts?.isNotEmpty == true) {
+    if (cachedProducts?.isNotEmpty ?? false) {
       emit(
         state.copyWith(
           products: cachedProducts?.lock,
