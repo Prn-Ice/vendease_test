@@ -1,6 +1,6 @@
 {
   "@@locale": "es",
-  "currency": "amount",
+  "currency": "{amount}",
   "@currency": {
     "description": "Amount with symbol",
     "placeholders": {
