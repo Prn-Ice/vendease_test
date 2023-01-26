@@ -1,3 +1,7 @@
+## 1.1.0-dev.5
+
+ - **FEAT**: add spanish translations.
+
 ## 1.1.0-dev.4
 
  - **FIX**: update endpoint and model.
