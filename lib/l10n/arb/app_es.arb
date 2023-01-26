@@ -1,7 +1,124 @@
 {
-    "@@locale": "es",
-    "counterAppBarTitle": "Contador",
-    "@counterAppBarTitle": {
-        "description": "Texto mostrado en la AppBar de la página del contador"
+  "@@locale": "es",
+  "currency": "amount",
+  "@currency": {
+    "description": "Amount with symbol",
+    "placeholders": {
+      "amount": {
+        "type": "double",
+        "format": "currency",
+        "example": "0",
+        "optionalParameters": {
+          "decimalDigits": 0,
+          "symbol": ""
+        }
+      }
     }
+  },
+  "counterAppBarTitle": "Contador",
+  "@counterAppBarTitle": {
+    "description": "Texto mostrado en la AppBar de la página del contador"
+  },
+  "dashboardHomeTitle": "Casa",
+  "@dashboardHomeTitle": {
+    "description": "Text shown on BottomNavigationBar on home tab"
+  },
+  "dashboardOrdersTitle": "Pedidos",
+  "@dashboardOrdersTitle": {
+    "description": "Text shown on BottomNavigationBar on orders tab"
+  },
+  "dashboardProductsTitle": "productos",
+  "@dashboardProductsTitle": {
+    "description": "Text shown on BottomNavigationBar on products tab"
+  },
+  "dashboardInvoiceTitle": "Factura",
+  "@dashboardInvoiceTitle": {
+    "description": "Text shown on BottomNavigationBar on invoice tab"
+  },
+  "dashboardDeliveryTitle": "Entrega",
+  "@dashboardDeliveryTitle": {
+    "description": "Text shown on BottomNavigationBar on delivery tab"
+  },
+  "homeWelcome": "Bienvenidas",
+  "@homeWelcome": {
+    "description": "Welcome text shown next to user name home tab"
+  },
+  "homeGreeting": "¿Qué estás buscando hoy?",
+  "@homeGreeting": {
+    "description": "Message displayed below [homeWelcome]"
+  },
+  "homeDurationPre": "Espectáculo:",
+  "@homeDurationPre": {
+    "description": "Text displayed next to duration sort button on [HomePage]"
+  },
+  "homeDurationSelect": "Esta semana",
+  "@homeDurationSelect": {
+    "description": "Text displayed on duration selector on [HomePage]"
+  },
+  "homeViewMore": "Ver más",
+  "@homeViewMore": {
+    "description": "Text displayed on view more button on [HomePage]"
+  },
+  "homeTotalOrders": "Pedidos totales",
+  "@homeTotalOrders": {
+    "description": "Text displayed above total orders"
+  },
+  "homeProductsTitle": "Categorías de Producto",
+  "@homeProductsTitle": {
+    "description": "Text displayed above list of products on [HomePage]"
+  },
+  "homeProductsSeeAll": "Ver todo",
+  "@homeProductsSeeAll": {
+    "description": "Text shown on button next to [homeProductsTitle], when tapped displays all products"
+  },
+  "homeRecentOrdersTitle": "Lista de pedidos recientes",
+  "@homeRecentOrdersTitle": {
+    "description": "Text displayed above list of recent orders on [HomePage]"
+  },
+  "cartTitle": "tu carrito",
+  "@cartTitle": {
+    "description": "Title text shown on cart tab"
+  },
+  "cartItemsCount": "{count,plural, =1{Item} other{Items}}",
+  "@cartItemsCount": {
+    "description": "No of items in cart",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cartSearchProduct": "Buscar producto",
+  "@cartSearchProduct": {
+    "description": "Text shown on product search box"
+  },
+  "cartCratesCount": "{count,plural, =1{Crate} other{Crates}}",
+  "@cartCratesCount": {
+    "description": "No of crates of item in cart",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cartAddProduct": "+ Agregar productos",
+  "@cartAddProduct": {
+    "description": "Button displayed on [CartPage], when tapped allow user to add another product to cart"
+  },
+  "cartTotal": "TOTAL",
+  "@cartTotal": {
+    "description": "Text displayed next to total of cart items"
+  },
+  "cartDeliveryFeeWarning": "Tarifa de envío aún no incluida",
+  "@cartDeliveryFeeWarning": {
+    "description": "Warning displayed below total amount"
+  },
+  "cartCheckOut": "Verificar",
+  "@cartCheckOut": {
+    "description": "Text displayed on checkout button, when pressed should proceed to payment"
+  },
+  "productTitle": "productos",
+  "@productTitle": {
+    "description": "Title text shown on products tab"
+  }
 }

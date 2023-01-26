@@ -79,7 +79,7 @@
   "@cartTitle": {
     "description": "Title text shown on cart tab"
   },
-  "cartItemsCount": "{count,plural, ={Item} other{Items}}",
+  "cartItemsCount": "{count,plural, =1{Item} other{Items}}",
   "@cartItemsCount": {
     "description": "No of items in cart",
     "placeholders": {
@@ -92,7 +92,7 @@
   "@cartSearchProduct": {
     "description": "Text shown on product search box"
   },
-  "cartCratesCount": "{count,plural, ={Crate} other{Crates}}",
+  "cartCratesCount": "{count,plural, =1{Crate} other{Crates}}",
   "@cartCratesCount": {
     "description": "No of crates of item in cart",
     "placeholders": {
